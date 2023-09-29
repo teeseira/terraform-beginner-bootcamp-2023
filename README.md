@@ -283,3 +283,4 @@ Here’s how:
 
    - Now, you can use Terraform Cloud with the manually added token in your Gitpod environment.
 
+We have automated this workaround with the following bash script [bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
