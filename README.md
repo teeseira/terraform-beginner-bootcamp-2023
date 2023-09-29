@@ -237,3 +237,49 @@ The Terraform Lock File **should be committed** to your Version Control System (
 
 `.terraform` directory contains binaries of terraform providers.
 
+## Issues with Terraform Cloud Login and Gitpod Workspace
+
+Running `terraform login` in a browser-based development environment like Gitpod within VSCode can sometimes present challenges because it relies on a graphical interface to generate an authentication token. Since Gitpod operates in a browser, it may not display graphical dialogs as expected.
+
+To work around this issue and successfully authenticate with Terraform Cloud in a browser-based environment like Gitpod, you can use a different method to obtain an authentication token. You can manually create a token in Terraform Cloud and then use that token in your Gitpod environment.
+
+Here’s how:
+
+1. **Manually generate a token in Terraform Cloud**:
+
+    [Manual Token Creation](https://app.terraform.io/app/settings/tokens?source=terraform-login)
+
+   - Go to the Terraform Cloud website and log in to your account.
+
+   - In the Terraform Cloud dashboard, navigate to your user settings or organization settings (depending on where you want to create the token).
+
+   - Look for the "API Tokens" or "Tokens" section. There should be an option to create a new token. Create a new token, and it will provide you with a token value.
+
+2. **Configure Gitpod Environment**:
+
+   - In your Gitpod environment or in VSCode within Gitpod, manually create and open your `credentials.tfrc.json` file.
+        ```sh
+        touch /home/gitpod/.terraform.d/credentials.tgrc.json
+        open /home/gitpod/.terraform.d/credentials.tgrc.json
+        ```
+
+   - Manually add the token you generated in Terraform Cloud to your `credentials.tfrc.json` file like this:
+
+     ```json
+     {
+       "credentials": {
+         "app.terraform.io": {
+           "token": "YOUR_TERRAFORM_CLOUD_TOKEN"
+         }
+       }
+     }
+     ```
+
+   - Replace `"YOUR_TERRAFORM_CLOUD_TOKEN"` with the token you generated in Terraform Cloud.
+
+3. **Save and Use the Token**:
+
+   - Save the changes to your `credentials.tfrc.json` file.
+
+   - Now, you can use Terraform Cloud with the manually added token in your Gitpod environment.
+
