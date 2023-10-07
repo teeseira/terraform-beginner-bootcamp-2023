@@ -200,9 +200,9 @@ class TerraTownsMockServer < Sinatra::Base
 
     home = Home.new
     home.town = $home[:town]
+    home.domain_name = $home[:domain_name]
     home.name = name
     home.description = description
-    home.domain_name = domain_name
     home.content_version = content_version
 
     unless home.valid?
@@ -224,8 +224,9 @@ class TerraTownsMockServer < Sinatra::Base
     end
 
     # delete from our mock database
+    uuid = $home[:uuid]
     $home = {}
-    { message: "House deleted successfully" }.to_json
+    { uuid: uuid }.to_json
   end
 end
 
