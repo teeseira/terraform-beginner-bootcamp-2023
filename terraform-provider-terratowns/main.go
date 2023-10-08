@@ -53,6 +53,10 @@ func Provider() *schema.Provider {
 	//p.ConfigureContextFunc = providerConfigure(p)
 	return p
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 //func validateUUID(v interface{}, k string) (ws []string, errors []error) {
 //	log.Print('validateUUID:start')
 //	value := v.(string)
@@ -60,4 +64,8 @@ func Provider() *schema.Provider {
 //		errors = append(error, fmt.Errorf("invalid UUID format"))
 //	}
 //	log.Print('validateUUID:end')
+<<<<<<< HEAD
 //}
+=======
+//}
+>>>>>>> main
