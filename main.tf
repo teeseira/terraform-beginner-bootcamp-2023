@@ -27,3 +27,14 @@ provider "terratowns" {
 #  content_version = var.content_version
 #  assets_path = var.assets_path
 #}
+
+resource "terratowns_home" "home" {
+  name = "Play Arcanum in 2023!"
+  description = <<DESCRIPTION
+Arcanum is a game from 2001 that had lots of problems when it was first released. But thanks to some people who love the game and fixed those issues, it's now really fun to play, even though the graphics are old. I'll show you how to play Arcanum without giving away the story in this guide.
+DESCRIPTION
+  #domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = "3fdq3gz.cloudfront.net"
+  town = "gamers-grotto"
+  content_version = 1
+}
