@@ -96,6 +96,7 @@ func Resource() *schema.Resource {
 		ReadContext: resourceHouseRead,
 		UpdateContext: resourceHouseUpdate,
 		DeleteContext: resourceHouseDelete,
+<<<<<<< HEAD
 		Schema: map[string]*schema.Schema{
 			"name": {
 				Type: schema.TypeString,
@@ -284,7 +285,7 @@ func resourceHouseUpdate(ctx context.Context, d *schema.ResourceData, m interfac
 
 	d.Set("name",payload["name"])
 	d.Set("description",payload["description"])
-	d.Set("content_version",payload["content_version"])
+	d.Set("content_version",payload["content_version"]
 	return diags
 }
 
