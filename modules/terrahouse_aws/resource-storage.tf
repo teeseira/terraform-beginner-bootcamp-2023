@@ -1,7 +1,8 @@
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
 # https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html?icmpid=docs_amazons3_console
 resource "aws_s3_bucket" "website_bucket" {
-  bucket = var.bucket_name
+  # We want to assign a random bucket name
+  #bucket = var.bucket_name
   tags = {
     UserUuid = var.user_uuid
   }
