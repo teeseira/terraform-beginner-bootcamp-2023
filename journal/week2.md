@@ -90,3 +90,10 @@ nested_var = {
   attribute2 = 42
 }
 ```
+
+## HTML issues
+For my terratown, the images in my assets folder were not displaying. To fix this I altered the following lines for the **"aws_s3_object" "upload_assets"** resource:
+
+  ```for_each = fileset("${var.public_path}/assets/", "*.{jpg,jpeg,png,gif}")```
+  
+  ```content_type = "image/*"```

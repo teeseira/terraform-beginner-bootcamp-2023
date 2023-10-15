@@ -28,19 +28,19 @@ resource "aws_s3_object" "index_html" {
   key    = "index.html"
   source = "${var.public_path}/index.html"
   content_type = "text/html"
-
   etag = filemd5("${var.public_path}/index.html")
   lifecycle {
     replace_triggered_by = [terraform_data.content_version.output]
     ignore_changes = [etag]
   }
 }
- 
+
 resource "aws_s3_object" "upload_assets" {
-  for_each = fileset("$var.public_path}/assets","*.{jpg,jpeg,png,gif}")
+  for_each = fileset("${var.public_path}/assets/", "*.{jpg,jpeg,png,gif}")
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "assets/${each.key}"
   source = "${var.public_path}/assets/${each.key}"
+  content_type = "image/*"
   etag = filemd5("${var.public_path}/assets/${each.key}")
   lifecycle {
     replace_triggered_by = [terraform_data.content_version.output]
@@ -54,7 +54,6 @@ resource "aws_s3_object" "error_html" {
   key    = "error.html"
   source = "${var.public_path}/error.html"
   content_type = "text/html"
-  
   etag = filemd5("${var.public_path}/error.html")
   #lifecycle {
   #  replace_triggered_by = [terraform_data.content_version.output]
