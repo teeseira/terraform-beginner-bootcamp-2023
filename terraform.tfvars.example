@@ -1,9 +1,9 @@
 terratowns_endpoint="https://terratowns.cloud/api"
 avatar = {
   public_path = "/workspace/terraform-beginner-bootcamp-2023/public/avatar"
-  content_version = 2
+  content_version = 5
 }
 success = {
   public_path = "/workspace/terraform-beginner-bootcamp-2023/public/success"
-  content_version = 1 
+  content_version = 4
 }
