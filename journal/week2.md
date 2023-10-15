@@ -61,3 +61,32 @@ Terraform Provider resources utilize CRUD.
 CRUD stands for Create, Read Update, and Delete
 
 https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+
+## Nested Terraform Variables
+
+To set nested Terraform variables in a `.tfvars` file, you can use a nested structure in HCL (HashiCorp Configuration Language). Here's how you can define and set nested variables in a `.tfvars` file:
+
+Assuming you have a Terraform configuration with nested variables, such as:
+
+```hcl
+# variables.tf
+
+variable "nested_var" {
+  description = "A nested variable"
+  type = object({
+    attribute1 = string
+    attribute2 = number
+  })
+}
+```
+
+You can set the values for the nested variable in a `.tfvars` file like this:
+
+```hcl
+# my_vars.tfvars
+
+nested_var = {
+  attribute1 = "value1"
+  attribute2 = 42
+}
+```
